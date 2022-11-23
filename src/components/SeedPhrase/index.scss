@@ -1,0 +1,29 @@
+.seedPhrase {
+  display: flex;
+  padding: rem(6) rem(8);
+  background-color: white;
+  border-radius: rem(16);
+  box-shadow: 0px rem(7) rem(32) rgba(0, 0, 0, 0.07);
+
+  &_index {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #BBCFFB;
+    border-radius: 50%;
+    color: #004DFF;
+    font-size: rem(11);
+    line-height: rem(13);
+    width: rem(20);
+    height: rem(20);
+  }
+
+  &_text {
+    margin-left: rem(8);
+    font-size: rem(15);
+    line-height: rem(21);
+    color: #04004D;
+    @include text-overflow(1);
+  }
+}

@@ -1,0 +1,47 @@
+.buttonShell {
+  $root: &;
+
+  background-color: rgba(49, 49, 49, 0.377);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &_icon {
+    text-align: center;
+    font-size: rem(18);
+    padding: rem(15) 0;
+    color: #D3D7DB;
+    cursor: pointer;
+  }
+  
+  &_contentWrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    overflow: hidden;
+    border-top-left-radius: rem(18);
+    border-top-right-radius: rem(18);
+    
+    animation-duration: 0.25s;
+    animation-fill-mode: both;
+    animation-name: fadeUp;
+
+    #{$root}_content {
+      padding: rem(7) 0;
+    }
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(100%);
+  }
+  
+  100% {
+    transform: translateY(0);
+  }
+}

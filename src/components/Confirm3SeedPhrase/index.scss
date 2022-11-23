@@ -1,0 +1,50 @@
+.confirm3SeedPhrase{
+  display: flex;
+  background-color: white;
+  border: rem(1) solid rgb(171, 166, 166);
+  border-radius: rem(6);
+  padding: rem(16) rem(26);
+
+  &_primary {
+   &_text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(32);
+    height: rem(32);
+    border-radius: 50%;
+    border: rem(1) solid rgb(27, 155, 198);
+   } 
+  }
+
+  &_list {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: rem(12);
+
+    &_itemWrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% / 3);
+    }
+
+    &_item {
+      padding: rem(6) rem(12);
+      border-radius: rem(6);
+      cursor: pointer;  
+      font-size: rem(15);
+      line-height: rem(21);
+      max-width: 100%;
+      @include text-overflow(1);
+
+      &-selected {
+        background-color: rgba(3, 102, 216, 0.481);
+        font-weight: 500;
+        color: blue;
+      }
+    }
+  }
+}
+

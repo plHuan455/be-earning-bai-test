@@ -1,0 +1,43 @@
+@mixin text-overflow ($number: 2) {
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: ($number);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin scroll-bars($size: 12,
+  // $thumbColor: $celestial-blue,
+  // $trackColor: $alice-blue,
+  $thumb-color: rgb(113, 131, 155, .75),
+  $track-color: rgb(239, 246, 255),
+  $border-radius-thumb: 5,
+  $border-radius-track: 5,
+  $border-thumb: 0.5,
+) {
+
+  // For Google Chrome
+  &::-webkit-scrollbar {
+    height: rem($size);
+    margin-right: rem(10);
+    width: rem($size);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    // background: $thumb-color;
+    // border: rem($border-thumb) solid $track-color;
+    background: $thumb-color;
+    border: rem($border-thumb) solid $track-color;
+    border-radius: rem($border-radius-thumb);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track-color;
+    border-radius: rem($border-radius-track);
+  }
+
+  // For Internet Explorer
+
+  scrollbar-face-color: $thumb-color;
+  scrollbar-track-color: $track-color;
+}

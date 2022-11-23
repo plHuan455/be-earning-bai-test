@@ -1,0 +1,303 @@
+.mainLayout {
+  $root: &;
+  padding-top: rem(60);
+  padding-bottom: rem(20);
+  height: calc(100vh - #{rem($width-confirm-bottom)});
+  overflow: auto;
+  @include scroll-bars(6);
+
+  .container {
+    padding-left: rem(20);
+    padding-right: rem(20);
+  }
+
+  &_backBar {
+    display: flex;
+    align-items: center;
+
+    &_icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    &_text {
+      font-size: rem(17);
+      line-height: rem(22);
+      margin-left: rem(12);
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  &_status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(26);
+
+    &_text {
+      color: rgb(34, 110, 203);
+      font-size: rem(17);
+      line-height: rem(23);
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    &_process {
+      font-size: rem(15);
+      line-height: rem(21);
+      color: black;
+    }
+  }
+
+  
+  &_confirm {
+    max-height: rem($width-confirm-bottom);
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: white;
+    padding-top: rem(27);
+    padding-bottom: rem(35);
+    box-shadow: 0px rem(-7) rem(64) rgba(0, 0, 0, 0.07);
+
+    &_title {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    &_text {
+      font-size: rem(17);
+      line-height: rem(23);
+      color: #04004D;
+    }
+
+    &_button {
+      margin-top: rem(20);
+      padding: rem(19.5);
+      font-size: rem(17);
+      line-height: rem(17);
+      font-weight: 700;
+      width: 100%;
+      background-color: rgb(21, 107, 169);
+      border: 0;
+      outline: none;
+      border-radius: rem(6);
+      color: white;
+      cursor: pointer;
+
+      &.disabled, &.loading {
+        background-color: #BBCFFB;
+      }
+
+      &.loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      &Loading > svg {
+        animation: spin 1s infinite;
+      }
+    }
+  }
+
+  &_seedPhraseList {
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin-left: rem(-16);
+    margin-top: rem(0);
+
+    &_item {
+      padding-top: rem(16);
+      padding-left: rem(16);
+      width: calc(100% / 3) ;
+    }
+
+  }
+
+  &_seedPhraseListStep1 {
+    &_item {
+      margin-top: rem(12);
+    }
+  }
+
+  &_error {
+    display: flex;
+    align-items: center;
+    margin-top: rem(15);
+
+    &_icon {
+      font-size: rem(20);
+      color: #FF0366;
+    }
+    
+    &_text {
+      color: #FF0366;
+      font-size: rem(13);
+      line-height: rem(18);
+      margin-left: rem(10);
+    }
+  }
+
+  &_copy {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: rem(26);
+
+    &_text {
+      font-size: rem(15);
+      line-height: rem(21);
+      color: #04004D;
+    }
+
+    &_iconWrapper {
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: rem(8);
+      width: rem(48);
+      aspect-ratio: 1 / 1;
+      background-color: white;
+      border-radius: rem(8);
+      border: rem(1) solid rgb(31, 105, 226);
+      cursor: pointer;
+    }
+
+    &_icon {
+      font-size: rem(32);
+      color: #004DFF;
+    }
+  }
+
+  &_bottomShellCopy {
+    padding-bottom: rem(35);
+    
+    &_icon {
+      display: flex;
+      justify-content: center;
+    }
+
+    &_iconSuccess {
+      font-size: rem(71);
+      color: rgb(79, 183, 79);
+    }
+
+    &_text {
+      margin-top: rem(24);
+      font-size: rem(22);
+      line-height: rem(29.75);
+      color: black;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    &_iconCancel {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: rem(27);
+      height: rem(27);
+      margin-top: rem(51);
+      color: #FF0366;
+
+      & > div div {
+        font-size: rem(15);
+        list-style: rem(21);
+      }
+    }
+  }
+
+  &_bottomShellConfirm {
+    padding-bottom: rem(36);
+
+    &_icon {
+      text-align: center;
+      font-size: rem(71);
+      color: #04B800;
+      height: rem(71);
+    }
+
+    &_title {
+      margin-top: rem(24);
+      font-size: rem(22);
+      line-height: rem(30);
+      text-align: center;
+      font-weight: 500;
+      color: #04004D;
+    }
+
+    &_list {
+      padding-top: rem(24);
+      max-height: calc(287 / 667 * 100vh);
+      overflow: auto; 
+      @include scroll-bars(2);
+    }
+
+    &_item {
+      display: flex;
+
+      & ~ & {
+        margin-top: rem(16);
+      }
+
+      &Check {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: rem(1) solid #BBCFFB;
+        flex-shrink: 0;
+        width: rem(24);
+        height: rem(24);
+        border-radius: 50%;
+
+        &.checked {
+          background-color: #004DFF;
+          border: 0;
+        }
+
+        &Icon {
+          color: #04004D;
+          font-size: rem(10);
+        }
+      }
+
+      &Text {
+        font-size: rem(15);
+        line-height: rem(21);
+        text-align: justify;
+        margin-left: rem(20);
+        color: #667386;
+      }
+    }
+
+    &_button {
+      font-size: rem(17);
+      line-height: rem(17);
+      font-weight: 700;
+      padding: rem(19.5) 0;
+      width: 100%;
+      background-color: #004DFF;
+      margin-top: rem(24);
+      border-radius: rem(10);
+      outline: none;
+      border: 0;
+      color: #FFFFFF;
+      cursor: pointer;
+      
+
+      &.disabled {
+        background-color: #BBCFFB;
+      }
+    }
+
+  }
+
+}
